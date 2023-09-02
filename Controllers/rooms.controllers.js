@@ -188,7 +188,7 @@ exports.bookingRoom = (req, res) => {
 
 exports.getBookedRooms = (req, res) => {
   res.send(
-    rooms.map((room) => {
+    rooms.filter((room) => {
       if (room.bookedStatus == true) {
         return {
           "Room Name": room.roomName,
@@ -197,11 +197,6 @@ exports.getBookedRooms = (req, res) => {
           "Date of Reservation ": room.customerDetails.date,
           "Start Time": room.customerDetails.startTime,
           "End Time": room.customerDetails.endTime,
-        };
-      } else {
-        return {
-          "Room Name": room.roomName,
-          "Booking Status": "Vacant",
         };
       }
     })
