@@ -217,6 +217,7 @@ exports.getBookedCustomers = (req, res) => {
       .map((room) => {
         return {
           "Customer name": room.customerDetails["customerName"],
+          "Room Name": room.roomName,
           "Date of Reservation": room.customerDetails.date,
           "Start Time": room.customerDetails.startTime,
           "End Time": room.customerDetails.endTime,
