@@ -170,7 +170,8 @@ exports.bookingRoom = (req, res) => {
           (room.customerDetails.date = booking.date),
           (room.customerDetails.startTime = booking.startTime),
           (room.customerDetails.endTime = booking.endTime),
-          (room.bookedStatus = !room.bookedStatus);
+          (room.bookedStatus = true);
+
         res.send({
           message: "Room Booked Successfully",
           roomDetails: room,
@@ -181,6 +182,7 @@ exports.bookingRoom = (req, res) => {
         );
       }
     }
+    return room;
   });
 };
 
